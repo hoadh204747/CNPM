@@ -1,0 +1,28 @@
+<script>
+    //sidebarToggle
+    const sidebarToggle = document.querySelector("#sidebar-toggle")
+    sidebarToggle.addEventListener("click", function(){
+        document.querySelector("#sidebar").classList.toggle("collapsed");
+    })
+
+
+    let theEditor;
+    ClassicEditor.create(document.querySelector( '#content'), {
+        
+    })
+    .then((editor) => {
+        theEditor = editor;
+    })
+    .catch( error => {
+        console.error( error );
+    });
+
+    function getDataFromTheEditor(){
+        return theEditor.getData();
+    }
+    var blog = getDataFromTheEditor();
+</script>
+<script src="/handle.js"></script>
+</body>
+
+</html>
