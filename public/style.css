@@ -10,6 +10,86 @@ li{
     list-style-type: none;
 }
 
+.table-room{
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+
+/* home */
+.main-footer{
+    position: fixed;
+    width: 100%;
+    /* height: 120px; */
+    /* background-color: black; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.main-footer .list-footer a{
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+.main-footer .list-footer a:hover{
+    color: #c02f2f;
+    transform: scale(1.2);
+}
+
+.blog{
+    padding-top: 50px;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    background-color: #ccc;
+}
+.box-blog{
+    width: 80%;
+    max-height: 600px;
+    /* background-color: #e2ae1f; */
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    
+}
+.box-blog .blog-post{
+    width: calc(100%/3);
+    /* background-color: #1f7de2; */
+    height: auto;
+    margin: 0 20px;
+}
+.box-blog .blog-post .blog-img{
+    width: 100%;
+    height: 260px;
+    /* background-color: #c02f2f; */
+}
+.box-blog .blog-post .blog-excerpt{
+    width: 90%;
+    max-height: 260px;
+    /* background-color: aqua; */
+    margin: 20px auto 0;
+    overflow: hidden;
+}
+.box-blog .blog-post .blog-readmore{
+    /* background-color: rgb(0, 255, 145); */
+    width: 30%;
+    padding: 8px;
+    margin: 10px auto;
+}
+.about{
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+.about span{
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
+
+}
+
 
 /* register-form */
 .wrapper{
@@ -58,4 +138,133 @@ li{
 .wrapper .member a{
     font-style: italic;
     color: #c02f2f;
+}
+
+/* form add-member*/
+.form-wrapper{
+    width: 500px;
+    padding: 2rem 1rem;
+    margin: 20px auto;
+    
+    border-radius: 10px;
+    text-align: center;
+}
+.form-wrapper h1{
+    margin-bottom: 20px;
+}
+.form-wrapper input{
+    width: 90%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    outline: none;
+    background: #ccc;
+}
+.form-wrapper button{
+    width: 20%;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    font-size: 1.8 rem;
+    background-color: #007BFF;
+    color: #fff;
+}
+.form-wrapper button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.form-wrapper label{
+    margin-top: 25px;
+    display: block;
+}
+
+/* admin dashboard */
+.wrapper-dashboard{
+    align-self: stretch;
+    display: flex;
+    width: 100%;
+}
+#sidebar {
+    max-width: 264px;
+    min-width: 264px;
+    background: var(--bs-dark);
+    transition: all 0.4s ease-in-out;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    width: 100%;
+    background: #ccc;
+}
+.sidebar-logo{
+    padding: 1.15rem;
+}
+.sidebar-logo span{
+    color: coral;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.sidebar-nav{
+    flex-grow: 1;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    margin-left: 0;
+}
+.sidebar-header{
+    color: white;
+    font-size: 1rem;
+    padding: 1.5rem 1.5rem 2.375rem;
+}
+
+a.sidebar-link:hover{
+    color: #fff;
+    background-color: chocolate;
+}
+ul.sidebar-dropdown li a{
+    font-size: 1rem;
+    margin-left: 28px;
+}
+
+a.sidebar-link{
+    padding: .625rem 1.625rem;
+    margin-bottom: 10px;
+    color: white;
+    position: relative;
+    display: block;
+    font-size: 1rem;
+}
+.sidebar-link[data-bs-toggle="collapse"]::after{
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after{
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+.avatar{
+    height: 40px;
+    width: 40px;
+}
+.navbar-expand .navbar-nav{
+    margin-left: auto;
+}
+/* sidebarToggle */
+#sidebar.collapsed{
+    margin-left: -264px;
 }

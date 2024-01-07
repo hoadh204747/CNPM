@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="wrapper-dashboard">
+    <%- include('../partials/nav-admin.ejs') %>
+    <div class="main">
+        <%- include('../partials/x-admin.ejs') %>
+
+        <main  class="content px-3 py-2">
+            
+            <div id="table" class="table-room">
+                <table style="width: 100%;">
+                    <tr>
+                        <th>Tên căn hộ</th>
+                        <th>Thao tác</th>
+                    </tr> 
+                    <% rooms.forEach( r => { %>
+                        <tr>
+                            <td><%= r.name %></td>
+                            <td><a href="/room/<%= r._id %>">Chi tiết</a></td>
+                        </tr>
+                    <% }) %>
+                </table>
+            </div>
+            
+        </main>
+    </div>
+</div>
+
+
+
+<%- include('../partials/footer.ejs') %>

@@ -9,6 +9,7 @@ const roomSchema = new Schema({
         {
             user:{
                 ho_ten: String,
+                sdt:String,
                 moi_quan_he: String,
             }
         }

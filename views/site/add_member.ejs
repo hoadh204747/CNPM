@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<div class="form-wrapper">
+    <h1>Thêm thành viên mới</h1>
+    <form action="/add-member" method="POST">
+        <input type="text" name="ho_ten" placeholder="Họ tên" required>
+
+        <input type="text" name="sdt" placeholder="Số điện thoại" required>
+
+        <label for="topic">Mối quan hệ với chủ hộ</label>
+        <select style="width: 420px; margin: auto;" class="form-select" name="moi_quan_he" id="moi_quan_he" required>
+            <option value="Vợ">Vợ</option>
+            <option value="Con cái">Con cái</option>
+            <option value="Anh chị em">Anh chị em</option>
+            <option value="Bạn bè">Bạn bè</option>
+            <option value="Khác">Khác</option>
+        </select>
+        <br>
+        <button type="submit">Tạo</button>
+
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

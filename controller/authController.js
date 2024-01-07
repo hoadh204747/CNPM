@@ -60,12 +60,10 @@ class AuthController {
                             req.session.authorized = true;
                             return req.session.save(() => {
                                 if(req.session.user.role === "member" ){
-                                    // res.redirect('/student/dashboard')
-                                    res.json({message:'user login'})
+                                    res.redirect('/dashboard')
                                 }
                                 if(req.session.user.role === "admin"){
-                                    // res.redirect('/admin/dashboard')
-                                    res.json({message:'admin login'})
+                                    res.redirect('/admin/dashboard')
                                 }
                             })
                         }
@@ -79,8 +77,7 @@ class AuthController {
 
     postLogout(req, res){
         req.session.destroy(() =>{
-            // res.redirect('/');
-            res.json({message:'logout success'})
+            res.redirect('/');
         })
     }
 }

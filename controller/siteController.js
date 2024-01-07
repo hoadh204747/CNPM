@@ -6,6 +6,10 @@ class SiteController {
         const room = await Room.create({name:name, idContract:idContract})
         res.json(room)
     }
+
+    async home(req,res){
+        res.render('home');
+    }
 }
 
 module.exports = new SiteController()

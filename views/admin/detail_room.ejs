@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="wrapper-dashboard">
+    <%- include('../partials/nav-admin.ejs') %>
+    <div class="main">
+        <%- include('../partials/x-admin.ejs') %>
+
+        <main  class="content px-3 py-2">
+            
+            <div>
+                <h3>Tên căn hộ: <%= room.name %></h3>
+                <h3>Chủ sở hữu: <%= user.fullname %></h3>
+                <h3>Danh sách thành viên trong căn hộ</h3>
+                <div id="table" class="table-room">
+                    <table style="width: 100%;">
+                        <tr>
+                            <th>Họ tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Mỗi quan hệ với chủ hộ</th>
+                        </tr>
+                        <% room.member.forEach(m => { %>
+                            <tr>
+                                <td><%= m.user.ho_ten %></td>
+                                <td><%= m.user.moi_quan_he %></td>
+                                <td><%= m.user.sdt %></td>
+                            </tr>
+                        <% }) %>
+                        
+                    </table>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+</div>
+
+
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,20 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<div class="main">
+    <h2>Thông tin cá nhân</h2>
+    <ul>
+        <li>Họ tên: <%= user.fullname %></li>
+        <li>Số điện thoại: <%= user.phone %></li>
+        <li>Email: <%= user.email %></li>
+        <li>Số CCCD: <%= user.cccd %></li>
+        <li>Mã hợp đồng căn hộ: <%= user.idContract %></li>
+        <li>Phòng: <%= room.name %></li>
+    </ul>
+    <h2>Chỉnh sửa thông tin cá nhân</h2>
+    <form action="">
+        
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

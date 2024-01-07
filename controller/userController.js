@@ -2,15 +2,24 @@ const Room = require('../model/roomModel')
 const User = require('../model/userModel')
 
 class UserController {
+
+    async getDashboard(req,res){
+        res.render('site/dashboard')
+    }
+
+    async getAddMember(req,res){
+        res.render('site/add_member')
+    }
+
     async addMember(req,res){
-        const {ho_ten, moi_quan_he} = req.body;
+        const {ho_ten, moi_quan_he, sdt} = req.body;
         // const room = await Room.findById(req.user.id_phong)
         // console.log(room)
         //     .then(() => {
         //         Room.updateOne(room._id, {$push: {member: [{user:{ho_ten:ho_ten, moi_quan_he:moi_quan_he}}]}})
         //         console.log(room)
         //     })
-        const updateRoom = Room.updateOne({_id:req.user.id_phong}, {$push: {member: [{user:{ho_ten, moi_quan_he}}]}})
+        const updateRoom = Room.updateOne({_id:req.user.id_phong}, {$push: {member: [{user:{ho_ten, moi_quan_he, sdt}}]}})
             .then(() => {
                 return res.json(updateRoom)
             })
@@ -22,12 +31,19 @@ class UserController {
             {_id:req.user.id_phong},
             {$pull: {member:{_id: idMember}}}
         )
-        console.log(updateRoom)
+        res.redirect('back')
     }
 
-    async getListMember(req,res){
+    async getInfoRoom(req,res){
+        const user = await User.findById(req.user._id)
         const room = await Room.findById(req.user.id_phong);
-        console.log(room.member)
+        res.render('site/info_room', {user, room})
+    }
+
+    async getInfo(req,res){
+        const user = await User.findById(req.user._id)
+        const room = await Room.findById(req.user.id_phong);
+        res.render('site/info-owner', {user, room})
     }
 }
 
