@@ -1,4 +1,5 @@
 const Room = require('../model/roomModel')
+const News = require('../model/newsModel')
 
 class SiteController {
 
@@ -13,7 +14,14 @@ class SiteController {
     }
 
     async home(req,res){
-        res.render('home');
+        const news = await News.find()
+        res.render('home', {news});
+    }
+
+    async detailNews(req,res){
+        const post = await News.find({})
+        const news = await News.findOne({_id:req.params.id})
+        res.render('detail_news', {news, post})
     }
 }
 

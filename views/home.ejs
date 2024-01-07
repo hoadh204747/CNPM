@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trung tam quản lý KTX</title>
+    <title> HUST</title>
     <link rel="icon" type="image/x-icon" href="/images/hust-favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -49,21 +49,37 @@
 
         <div class="box-blog">
             
-            
+            <% news.forEach(n => { %>
+                <div class="blog-post">
+                    <div class="blog-img"></div>
+                    <div class="blog-excerpt">
+                        <h4 style="margin-bottom: 20px;">
+                            <a href="#"><%= n.title %></a>
+                        </h4>
+                        <div style="margin-bottom: 20px;" class="blog-date">16/8/2023</div>
+                        
+                        Căn cứ vào kế hoạch số 1802/KH-ĐHBK-CTSV ngày 26/07/2023 về tổ chức nhập học đối với sinh viên trúng tuyển ĐH chính quy năm 2023, Trung tâm QL KTX xin trân trọng thông báo thông tin xếp ở kỳ...                            
+                    </div>
+                    <div class="blog-readmore">
+                        <a target="_blank" href="/news/<%= n._id %>">Read More</a>
+                    </div>
+                </div>
+            <% }) %>
+
         </div>
     </div>
 
     <div class="about">
-        <h1 style="margin: 50px 0 30px;">TT QUẢN LÝ KTX ĐẠI HỌC BÁCH KHOA</h1>
+        <h1 style="margin: 50px 0 30px;">VINHOME OCEAN PARK</h1>
         <div class="about-content">
-            <span>Tổ chức, quản lý toàn diện khu KTX sinh viên. Bố trí xếp ở sinh viên nội trú đúng đối tượng, số lượng.</span>
+            <span>Không chỉ là một Đại đô thị đẳng cấp quốc tế, Vinhomes Ocean Park kiến tạo nên một Thành phố mới với Thiên nhiên – Cuộc sống và Con người với một diện mạo mới mẻ và tinh thần hứng khởi, sẵn sàng cho những trải nghiệm tưởng không thể mà lại là có thể.</span>
             <br>
-            <span>Đảm bảo các điều kiện phục vụ sinh hoạt và học tập của sinh viên nội trú:</span>
+            <span>Nơi liền kề phố phường sôi động là xanh ngát đại dương
+                Nơi giữa nội đô là cận biển kề hồ, là góc bể chân mây
+                Nơi chỉ một bước là thư thái vùi chân dưới làn cát mịn và cũng chỉ một bước là thỏa sức reo vui với nhịp sống năng động từng ngày.</span>
             <br>
-            <span><b>Điện, nước sinh hoạt, dịch vụ ăn uống</b></span>
+            <span>Vinhomes Ocean Park – Thành phố Biển hồ phiên bản Thông Minh - Nơi biến những điều không thể thành có thể.</span>
             <br>
-            <span><b>An ninh trật tự, vệ sinh môi trường</b></span>
-            <br><span><b>Hoạt động thể thao và văn hoá tinh thần trong khu KTX</b></span>
         </div>
     </div>
 </body>
