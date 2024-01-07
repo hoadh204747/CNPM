@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="wrapper-dashboard">
+  <%- include('../partials/nav-admin.ejs') %>
+  <div class="main">
+    <%- include('../partials/x-admin.ejs') %>
+
+    <main class="content px-3 py-2">
+      <h1>Tạo noi quy</h1>
+
+      <form action="/post-noiquy" method="POST">
+        <label for="title"><b>Tiêu đề</b></label>
+        <br />
+        <input
+          style="width: 90%; margin: 10px 40px"
+          type="text"
+          placeholder="Nhập tiêu đề"
+          name="title"
+          value=""
+        />
+        <br />
+        <label for="content"><b>Nội dung</b></label>
+        <textarea id="content" name="content" cols="50" rows="10"></textarea>
+        <br />
+
+        <button type="submit">Đăng</button>
+      </form>
+    </main>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
