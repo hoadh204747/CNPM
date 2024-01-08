@@ -22,40 +22,41 @@ class AuthController {
         cccd,
         idContract,
         role: "member",
-      }).then((user) => {
-        const updateUser = User.findByIdAndUpdate(
-          user?._id,
-          { $set: { id_phong } },
-          { new: true }
-        );
-        const updateRoom = Room.updateOne(
-          { _id: room?._id },
-          { $set: { idOwner: user?._id } }
-        );
-        res.status(200).json(updateUser);
-      });
+      })
+    //   .then((user) => {
+    //     const updateUser = User.findByIdAndUpdate(
+    //       user?._id,
+    //       { $set: { id_phong } },
+    //       { new: true }
+    //     );
+    //     const updateRoom = Room.updateOne(
+    //       { _id: room?._id },
+    //       { $set: { idOwner: user?._id } }
+    //     );
+    //     res.redirect('/login');
+    //   });
       const updateUser = User.findByIdAndUpdate(
         user?._id,
         { $set: { id_phong } },
         { new: true }
       ).then(() => {
-        return res.json(updateUser);
+        res.redirect('/login');
       });
     }
-    try {
-      const user = await User.create({
-        email,
-        fullname,
-        password: hashedPassword,
-        phone,
-        cccd,
-        idContract,
-        role: "member",
-      });
-      res.status(200).json(user);
-    } catch (err) {
-      console.log(err);
-    }
+    // try {
+    //   const user = await User.create({
+    //     email,
+    //     fullname,
+    //     password: hashedPassword,
+    //     phone,
+    //     cccd,
+    //     idContract,
+    //     role: "member",
+    //   });
+    //   res.status(200).json(user);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   }
 
   async getLogin(req, res) {
