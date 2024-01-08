@@ -2,6 +2,7 @@ const Room = require("../model/roomModel");
 const User = require("../model/userModel");
 const News = require("../model/newsModel");
 const noiquy = require("../model/noiquy");
+const quydinh = require("../model/quydinh");
 
 class AdminController {
   async getDashboard(req, res) {
@@ -61,6 +62,34 @@ class AdminController {
     const noiQuy = await noiquy.create({ title: title, content: content });
     // res.redirect("/list-noiquy");
     res.json(noiQuy);
+  }
+  async getListNoiQuy(req, res) {
+    try {
+      const noiQuyList = await noiquy.find().sort({ _id: -1 }).lean();
+      res.render("admin/list_noiquy", { noiQuyList: noiQuyList });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("No Data Found");
+    }
+  }
+
+  // quy dinh
+  async getQuyDinh(req, res) {
+    res.render("admin/quy_dinh_add");
+  }
+  async postQuyDinh(req, res) {
+    const { title, content } = req.body;
+    const quyDinh = await quydinh.create({ title: title, content: content });
+    res.redirect("/list-quydinh");
+  }
+  async getListQuyDinh(req, res) {
+    try {
+      const quyDinhList = await quydinh.find().sort({ _id: -1 }).lean();
+      res.render("admin/list_quy_dinh", { quyDinhList: quyDinhList });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("No Data Found");
+    }
   }
 }
 

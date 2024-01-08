@@ -56,36 +56,6 @@ class AuthController {
     } catch (err) {
       console.log(err);
     }
-    // res.redirect('/login')
-
-    // try {
-    //   const newUser = await User.create({
-    //     email,
-    //     fullname,
-    //     password: hashedPassword,
-    //     phone,
-    //     cccd,
-    //     idContract,
-    //     role: "member",
-    //     id_phong: room?._id, // Assuming you want to store the room's ID with the user
-    //   });
-
-    //   await Room.updateOne(
-    //     { _id: room?._id },
-    //     { $set: { idOwner: newUser?._id } }
-    //   );
-
-    //   // Redirect or respond with the new user info
-    //   // res.redirect('/login');
-    //   res
-    //     .status(201)
-    //     .json({ message: "User registered successfully.", user: newUser });
-    // } catch (error) {
-    //   console.error(error);
-    //   res.status(500).json({
-    //     message: "An error occurred during the registration process.",
-    //   });
-    // }
   }
 
   async getLogin(req, res) {

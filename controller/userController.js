@@ -1,5 +1,7 @@
 const Room = require("../model/roomModel");
 const User = require("../model/userModel");
+const noiQuy = require("../model/noiquy");
+const quyDinh = require("../model/quydinh");
 
 class UserController {
   async getDashboard(req, res) {
@@ -48,10 +50,20 @@ class UserController {
   }
 
   async getNoiQuy(req, res) {
-    res.render("site/noi_quy");
+    try {
+      const listNoiQuy = await noiQuy.find({});
+      res.render("site/noi_quy", { listNoiQuy: listNoiQuy });
+    } catch (error) {
+      res.status(500).send("Error getting noi quy");
+    }
   }
   async getQuyDinh(req, res) {
-    res.render("site/quy_dinh");
+    try {
+      const listQuyDinh = await quyDinh.find({});
+      res.render("site/quy_dinh", { listQuyDinh: listQuyDinh });
+    } catch (error) {
+      res.status(500).send("Error getting quy dinh");
+    }
   }
   async getHotline(req, res) {
     res.render("site/hotline");

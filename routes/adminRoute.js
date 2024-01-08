@@ -17,5 +17,10 @@ router.post("/admin/list-news/:id", adminController.deteleNews);
 
 router.get("/post-noiquy", adminController.getNoiQuy);
 router.post("/post-noiquy", adminController.postNoiQuy);
+router.get("/list-noiquy", adminController.getListNoiQuy);
+
+router.get("/post-quydinh", adminController.getQuyDinh);
+router.post("/post-quydinh", adminController.postQuyDinh);
+router.get("/list-quydinh", adminController.getListQuyDinh);
 
 module.exports = router;
