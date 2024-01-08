@@ -1,34 +1,41 @@
-<%- include('../partials/header.ejs') %>
-<%- include('../partials/nav.ejs') %>
+<%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %>
 
 <div class="main">
-    <h3>Tên căn hộ: <%= room.name %></h3>
-    <h3>Chủ sở hữu: <%= user.fullname %></h3>
-    <h3>Danh sách thành viên trong căn hộ</h3>
-    <div id="table" class="table-room">
-        <table style="width: 100%;">
-            <tr>
-                <th>Họ tên</th>
-                <th>Số điện thoại</th>
-                <th>Mỗi quan hệ với chủ hộ</th>
-                <th>Thao tác</th>
-            </tr>
-            <% room.member.forEach(m => { %>
-                <tr>
-                    <td><%= m.user.ho_ten %></td>
-                    <td><%= m.user.moi_quan_he %></td>
-                    <td><%= m.user.sdt %></td>
-                    <td>
-                        <form action="/delete-member?_method=DELETE" method="POST">
-                            <input type="hidden" name="idMember" id="" value="<%= m._id %>">
-                            <input style="padding: 5px; border: none; background-color: rgb(255, 238, 80); border-radius: 5px;" type="submit" value="Xóa"/>
-                        </form>
-                    </td>
-                </tr>
-            <% }) %>
-            
-        </table>
-    </div>
+  <h3>Tên căn hộ: <%= room?.name %></h3>
+  <h3>Chủ sở hữu: <%= user.fullname %></h3>
+  <h3>Danh sách thành viên trong căn hộ</h3>
+  <div id="table" class="table-room">
+    <table style="width: 100%">
+      <tr>
+        <th>Họ tên</th>
+        <th>Số điện thoại</th>
+        <th>Mỗi quan hệ với chủ hộ</th>
+        <th>Thao tác</th>
+      </tr>
+      <% room?.member.forEach(m => { %>
+      <tr>
+        <td><%= m.user.ho_ten %></td>
+        <td><%= m.user.moi_quan_he %></td>
+        <td><%= m.user.sdt %></td>
+        <td>
+          <form action="/delete-member?_method=DELETE" method="POST">
+            <input type="hidden" name="idMember" id="" value="<%= m._id %>" />
+            <input
+              style="
+                padding: 5px;
+                border: none;
+                background-color: rgb(255, 238, 80);
+                border-radius: 5px;
+              "
+              type="submit"
+              value="Xóa"
+            />
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </div>
 </div>
 
 <%- include('../partials/footer.ejs') %>

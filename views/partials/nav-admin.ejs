@@ -1,56 +1,123 @@
 <div id="sidebar">
-    <div class="h-100">
-        <div class="sidebar-logo">
-            <span>HUST</span>
-        </div>
-        <ul class="sidebar-nav">
-            <li class="sidebar-header">
-                Bảng điều khiển
-            </li>
-            <li class="sidebar-item">
-                <a href="/admin/dashboard" class="sidebar-link">
-                    <i class="fa-solid fa-house pe-2"></i>
-                    Trang chủ
-                </a>
-            </li>
-            <li class="sidebar-item">
-            </li>
-            <li class="sidebar-item">
-                <a href="" class="sidebar-link collapsed" data-bs-target="#rooms" data-bs-toggle="collapse" aria-expanded="false">
-                    <i class="fa-solid fa-bars-progress pe-2"></i>
-                    Quản lý căn hộ
-                </a>
-                <ul id="rooms" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a href="/rooms" class="sidebar-link">
-                            Danh sách Căn hộ
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="/create-room" class="sidebar-link">
-                            Tạo thêm căn hộ mới
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="sidebar-item">
-                <a href="" class="sidebar-link collapsed" data-bs-target="#post" data-bs-toggle="collapse" aria-expanded="false">
-                    <i class="fa-solid fa-newspaper pe-2"></i>
-                    Quản lý bài thông báo
-                </a>
-                <ul id="post" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a href="/list-news" class="sidebar-link">
-                            Danh sách bài thông báo
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="/post-news" class="sidebar-link">
-                            Tạo bài thông báo mới
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+  <div class="h-100">
+    <div class="sidebar-logo">
+      <span>HUST</span>
     </div>
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">Bảng điều khiển</li>
+      <li class="sidebar-item">
+        <a href="/admin/dashboard" class="sidebar-link">
+          <i class="fa-solid fa-house pe-2"></i>
+          Trang chủ
+        </a>
+      </li>
+      <li class="sidebar-item"></li>
+      <li class="sidebar-item">
+        <a
+          href=""
+          class="sidebar-link collapsed"
+          data-bs-target="#rooms"
+          data-bs-toggle="collapse"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars-progress pe-2"></i>
+          Quản lý căn hộ
+        </a>
+        <ul
+          id="rooms"
+          class="sidebar-dropdown list-unstyled collapse"
+          data-bs-parent="#sidebar"
+        >
+          <li class="sidebar-item">
+            <a href="/rooms" class="sidebar-link"> Danh sách Căn hộ </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="/create-room" class="sidebar-link">
+              Tạo thêm căn hộ mới
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidebar-item">
+        <a
+          href=""
+          class="sidebar-link collapsed"
+          data-bs-target="#post"
+          data-bs-toggle="collapse"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-newspaper pe-2"></i>
+          Quản lý bài thông báo
+        </a>
+        <ul
+          id="post"
+          class="sidebar-dropdown list-unstyled collapse"
+          data-bs-parent="#sidebar"
+        >
+          <li class="sidebar-item">
+            <a href="/list-news" class="sidebar-link">
+              Danh sách bài thông báo
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="/post-news" class="sidebar-link">
+              Tạo bài thông báo mới
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Nội Quy Section -->
+      <li class="sidebar-item">
+        <a
+          href=""
+          class="sidebar-link collapsed"
+          data-bs-target="#noi-quy"
+          data-bs-toggle="collapse"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-key pe-2"></i>
+          Nội Quy
+        </a>
+        <ul
+          id="noi-quy"
+          class="sidebar-dropdown list-unstyled collapse"
+          data-bs-parent="#sidebar"
+        >
+          <li class="sidebar-item">
+            <a href="/list-noiquy" class="sidebar-link">Danh sách Nội Quy</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="/post-noiquy" class="sidebar-link">Thêm Nội Quy mới</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Quy Định Section -->
+      <li class="sidebar-item">
+        <a
+          href=""
+          class="sidebar-link collapsed"
+          data-bs-target="#quy-dinh"
+          data-bs-toggle="collapse"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-gavel pe-2"></i>
+          Quy Định
+        </a>
+        <ul
+          id="quy-dinh"
+          class="sidebar-dropdown list-unstyled collapse"
+          data-bs-parent="#sidebar"
+        >
+          <li class="sidebar-item">
+            <a href="/list-quydinh" class="sidebar-link">Danh sách Quy Định</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="/post-quydinh" class="sidebar-link">Thêm Quy Định mới</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
+</div>

@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="wrapper-dashboard">
+  <%- include('../partials/nav-admin.ejs') %>
+  <div class="main">
+    <%- include('../partials/x-admin.ejs') %>
+
+    <main class="content px-3 py-2">
+      <h1><strong>Tạo Quy Định</strong></h1>
+
+      <form action="/post-quydinh" method="POST">
+        <label for="title"><b>Tiêu đề</b></label>
+        <br />
+        <input
+          style="
+            width: 100%;
+            border: 1px solid slategrey;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+          "
+          type="text"
+          placeholder="Nhập tiêu đề"
+          name="title"
+          value=""
+        />
+        <br />
+        <label for="content" style="margin-top: 20px"><b>Nội dung</b></label>
+        <textarea id="content" name="content" cols="50" rows="10"></textarea>
+        <br />
+
+        <button
+          type="submit"
+          style="
+            border-radius: 10px;
+            padding: 5px 16px;
+            background-color: #fb8b24;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+          "
+        >
+          Đăng
+        </button>
+      </form>
+    </main>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

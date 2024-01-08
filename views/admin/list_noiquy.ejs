@@ -1,0 +1,51 @@
+<% function stripHtml(html) { return html.replace(/<[^>]*>?/gm, ''); } %> <%-
+include('../partials/header.ejs') %>
+
+<div class="wrapper-dashboard1">
+  <%- include('../partials/nav-admin.ejs') %>
+  <div class="main1">
+    <%- include('../partials/x-admin.ejs') %>
+
+    <main class="content1 px-3 py-2">
+      <div class="search1">
+        <h2><strong>Danh sách nội quy</strong></h2>
+
+        <form action="/search" method="POST" role="search">
+          <input type="search" name="search" placeholder="Tìm kiếm..." />
+        </form>
+      </div>
+
+      <div class="list-news1">
+        <ul>
+          <% noiQuyList.forEach(n => { %>
+          <li style="border-bottom: 1px solid slategrey; padding-bottom: 5px">
+            <div class="info1">
+              <div>
+                <a target="_blank" href="/noiQuyList/<%= n._id %>">
+                  <%= n.title %>
+                </a>
+              </div>
+              <div style="width: 700px">
+                <span><%= stripHtml(n.content) %></span>
+              </div>
+            </div>
+
+            <div class="btn1">
+              <a href="/edit-noiquy/<%= n._id %>"><button>Sửa</button></a>
+              <form
+                action="/admin/list-noiquy/<%= n._id %>?_method=DELETE"
+                method="POST"
+              >
+                <button type="submit">Xóa</button>
+              </form>
+            </div>
+          </li>
+
+          <% }) %>
+        </ul>
+      </div>
+    </main>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,6 +1,33 @@
-<%- include('../partials/header.ejs') %>
-<%- include('../partials/nav.ejs') %>
+<%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %>
 
-hello
+<main class="dashboard-container">
+  <h1 class="dashboard-heading">Welcome to your Dashboard</h1>
+
+  <section class="dashboard-overview">
+    <div class="dashboard-card">
+      <h2>Current Listings</h2>
+      <p>View and manage current apartment listings.</p>
+      <a href="/listings" class="dashboard-link">Manage Listings</a>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Tenants</h2>
+      <p>Overview of current tenants and lease agreements.</p>
+      <a href="/tenants" class="dashboard-link">View Tenants</a>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Maintenance Requests</h2>
+      <p>Track and update the status of maintenance issues.</p>
+      <a href="/maintenance" class="dashboard-link">Manage Requests</a>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Community Board</h2>
+      <p>Announcements and events for apartment residents.</p>
+      <a href="/community" class="dashboard-link">View Board</a>
+    </div>
+  </section>
+</main>
 
 <%- include('../partials/footer.ejs') %>

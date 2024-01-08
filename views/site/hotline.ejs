@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %>
+
+<main class="container mt-4">
+  <h1 class="text-center mb-4">Hotline</h1>
+
+  <div class="hotline-section">
+    <h2>Liên Hệ Khẩn Cấp</h2>
+    <p>
+      Nếu bạn cần hỗ trợ ngay lập tức, vui lòng sử dụng thông tin liên hệ dưới
+      đây:
+    </p>
+    <ul>
+      <li>Điện thoại: <strong>023-4444-04</strong></li>
+      <li>Email: <strong>support@example.com</strong></li>
+    </ul>
+  </div>
+
+  <!-- Optional: Contact Form for the hotline page -->
+  <div class="contact-form-section">
+    <h2>Gửi Tin Nhắn Khẩn Cấp</h2>
+    <form action="/send-message" method="post">
+      <div class="form-group">
+        <label for="name">Tên của bạn:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Tin Nhắn:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Gửi Tin Nhắn</button>
+    </form>
+  </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>
