@@ -60,8 +60,7 @@ class AdminController {
   async postNoiQuy(req, res) {
     const { title, content } = req.body;
     const noiQuy = await noiquy.create({ title: title, content: content });
-    // res.redirect("/list-noiquy");
-    res.json(noiQuy);
+    res.redirect("/list-noiquy");
   }
   async getListNoiQuy(req, res) {
     try {
@@ -71,6 +70,18 @@ class AdminController {
       console.error(error);
       res.status(500).send("No Data Found");
     }
+  }
+  async getUpdateNoiQuy(req, res) {
+    const noiQuy = await noiquy.findOne({ _id: req.params.id });
+    res.render("admin/edit_noiquy", { noiQuy: noiQuy });
+  }
+  async updateNoiQuy(req, res) {
+    const noiQuy = await noiquy.updateOne({ _id: req.params.id }, req.body);
+    res.redirect("/list-noiquy");
+  }
+  async deteleNoiQuy(req, res) {
+    await noiquy.deleteOne({ _id: req.params.id });
+    res.redirect("/list-noiquy");
   }
 
   // quy dinh
@@ -90,6 +101,18 @@ class AdminController {
       console.error(error);
       res.status(500).send("No Data Found");
     }
+  }
+  async getUpdateQuyDinh(req, res) {
+    const quyDinh = await quydinh.findOne({ _id: req.params.id });
+    res.render("admin/edit_quy_dinh", { quyDinh: quyDinh });
+  }
+  async updateQuyDinh(req, res) {
+    const quyDinh = await quydinh.updateOne({ _id: req.params.id }, req.body);
+    res.redirect("/list-quydinh");
+  }
+  async deteleQuyDinh(req, res) {
+    await quydinh.deleteOne({ _id: req.params.id });
+    res.redirect("/list-quydinh");
   }
 }
 

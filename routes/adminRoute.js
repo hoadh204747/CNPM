@@ -18,9 +18,15 @@ router.post("/admin/list-news/:id", adminController.deteleNews);
 router.get("/post-noiquy", adminController.getNoiQuy);
 router.post("/post-noiquy", adminController.postNoiQuy);
 router.get("/list-noiquy", adminController.getListNoiQuy);
+router.get("/edit-noiquy/:id", adminController.getUpdateNoiQuy);
+router.post("/edit-noiquy/:id", adminController.updateNoiQuy);
+router.post("/admin/list-noiquy/:id", adminController.deteleNoiQuy);
 
 router.get("/post-quydinh", adminController.getQuyDinh);
 router.post("/post-quydinh", adminController.postQuyDinh);
 router.get("/list-quydinh", adminController.getListQuyDinh);
+router.get("/edit-quydinh/:id", adminController.getUpdateQuyDinh);
+router.post("/edit-quydinh/:id", adminController.updateQuyDinh);
+router.post("/admin/list-quydinh/:id", adminController.deteleQuyDinh);
 
 module.exports = router;

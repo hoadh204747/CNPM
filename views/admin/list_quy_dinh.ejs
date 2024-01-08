@@ -1,42 +1,42 @@
 <% function stripHtml(html) { return html.replace(/<[^>]*>?/gm, ''); } %> <%-
 include('../partials/header.ejs') %>
 
-<div class="wrapper-dashboard">
+<div class="wrapper-dashboard1">
   <%- include('../partials/nav-admin.ejs') %>
-  <div class="main">
+  <div class="main1">
     <%- include('../partials/x-admin.ejs') %>
 
-    <main class="content px-3 py-2">
+    <main class="content1 px-3 py-2">
       <div class="search">
-        <h2>Quản lý danh sách quy định</h2>
+        <h2><strong>Danh sách quy định</strong></h2>
 
         <form action="/search" method="POST" role="search">
           <input type="search" name="search" placeholder="Tìm kiếm..." />
         </form>
       </div>
 
-      <div class="list-news">
+      <div class="list-news1">
         <ul>
           <% quyDinhList.forEach(n => { %>
           <li style="border-bottom: 1px solid slategrey; padding-bottom: 5px">
-            <div class="info">
-              <div style="width: 400px">
+            <div class="info1">
+              <div>
                 <a target="_blank" href="/quyDinhList/<%= n._id %>">
                   <%= n.title %>
                 </a>
               </div>
-              <div style="width: 200px">
+              <div style="width: 700px">
                 <span><%= stripHtml(n.content) %></span>
               </div>
             </div>
 
-            <div class="btn">
-              <a href="/edit-news/<%= n._id %>"><button>Sửa</button></a>
+            <div class="btn1">
+              <a href="/edit-quydinh/<%= n._id %>"><button>Sửa</button></a>
               <form
-                action="/admin/list-news/<%= n._id %>?_method=DELETE"
+                action="/admin/list-quydinh/<%= n._id %>?_method=DELETE"
                 method="POST"
               >
-                <input type="submit" name="" id="" value="Xóa" />
+                <button type="submit">Xóa</button>
               </form>
             </div>
           </li>

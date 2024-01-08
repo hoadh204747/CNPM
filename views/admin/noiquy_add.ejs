@@ -6,24 +6,43 @@
     <%- include('../partials/x-admin.ejs') %>
 
     <main class="content px-3 py-2">
-      <h1>Tạo noi quy</h1>
+      <h1><strong>Tạo Nội Quy</strong></h1>
 
       <form action="/post-noiquy" method="POST">
         <label for="title"><b>Tiêu đề</b></label>
         <br />
         <input
-          style="width: 90%; margin: 10px 40px"
+          style="
+            width: 100%;
+            border: 1px solid slategrey;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+          "
           type="text"
           placeholder="Nhập tiêu đề"
           name="title"
           value=""
         />
         <br />
-        <label for="content"><b>Nội dung</b></label>
+        <label for="content" style="margin-top: 20px"><b>Nội dung</b></label>
         <textarea id="content" name="content" cols="50" rows="10"></textarea>
         <br />
 
-        <button type="submit">Đăng</button>
+        <button
+          type="submit"
+          style="
+            border-radius: 10px;
+            padding: 5px 16px;
+            background-color: #fb8b24;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+          "
+        >
+          Đăng
+        </button>
       </form>
     </main>
   </div>

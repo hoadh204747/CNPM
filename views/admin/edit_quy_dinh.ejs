@@ -6,9 +6,9 @@
     <%- include('../partials/x-admin.ejs') %>
 
     <main class="content px-3 py-2">
-      <h1><strong>Tạo Quy Định</strong></h1>
+      <h1>Chỉnh sửa quy định</h1>
 
-      <form action="/post-quydinh" method="POST">
+      <form action="/edit-quydinh/<%= quyDinh._id %>?_method=PUT" method="POST">
         <label for="title"><b>Tiêu đề</b></label>
         <br />
         <input
@@ -22,15 +22,15 @@
           type="text"
           placeholder="Nhập tiêu đề"
           name="title"
-          value=""
+          value="<%= quyDinh.title %>"
         />
         <br />
         <label for="content" style="margin-top: 20px"><b>Nội dung</b></label>
-        <textarea id="content" name="content" cols="50" rows="10"></textarea>
-        <br />
+        <textarea id="content" name="content" cols="50" rows="10">
+             <%= quyDinh.content %></textarea
+        >
 
         <button
-          type="submit"
           style="
             border-radius: 10px;
             padding: 5px 16px;
@@ -40,8 +40,9 @@
             cursor: pointer;
             margin-top: 10px;
           "
+          type="submit"
         >
-          Đăng
+          Cập nhật
         </button>
       </form>
     </main>

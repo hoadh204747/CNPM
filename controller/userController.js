@@ -51,7 +51,7 @@ class UserController {
 
   async getNoiQuy(req, res) {
     try {
-      const listNoiQuy = await noiQuy.find({});
+      const listNoiQuy = await noiQuy.find().sort({ _id: -1 }).lean();
       res.render("site/noi_quy", { listNoiQuy: listNoiQuy });
     } catch (error) {
       res.status(500).send("Error getting noi quy");
@@ -59,7 +59,7 @@ class UserController {
   }
   async getQuyDinh(req, res) {
     try {
-      const listQuyDinh = await quyDinh.find({});
+      const listQuyDinh = await quyDinh.find().sort({ _id: -1 }).lean();
       res.render("site/quy_dinh", { listQuyDinh: listQuyDinh });
     } catch (error) {
       res.status(500).send("Error getting quy dinh");
