@@ -10,9 +10,7 @@
             <div class="search">
                 <h2>Quản lý danh sách bài đăng</h2>
             
-                <form action="/search" method="POST" role="search">
-                    <input type="search" name="search" placeholder="Tìm kiếm...">
-                </form>
+                    <input type="text" id="search" placeholder="Tìm kiếm...">
             </div>
             
             <div class="list-news">
@@ -47,5 +45,20 @@
     </div>
 </div>
 
+<script>
+    const search = document.querySelector('#search')
+    search.addEventListener('input', function(e){
+        const filter= e.target.value.toLowerCase();
+        const item = document.querySelectorAll('.list-news li')
+        item.forEach( i => {
+            let text = i.textContent.toLowerCase();
+            if(text.includes(filter.toLowerCase())){
+                i.style.display = '';
+            } else {
+                i.style.display = 'none';
+            }
+        })
+    })
+</script>
 
 <%- include('../partials/footer.ejs') %>

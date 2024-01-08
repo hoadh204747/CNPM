@@ -16,6 +16,7 @@ app.use(express.static('public'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 
+
 const store = new MongoDBStore({
     uri: 'mongodb://127.0.0.1:27017/CNPM',
     collection: 'sessions'
