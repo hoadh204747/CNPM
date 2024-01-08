@@ -558,13 +558,9 @@ p {
   padding: 20px;
 }
 
-.search1 {
-  margin-bottom: 20px;
-}
-
 .list-news1 ul {
   list-style: none;
-  padding: 0;
+  padding: 10px 0;
 }
 
 .list-news1 li {
