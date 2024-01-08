@@ -13,4 +13,8 @@ router.get("/noi-quy", userController.getNoiQuy);
 router.get("/quy-dinh", userController.getQuyDinh);
 router.get("/hotline", userController.getHotline);
 
+//book service
+router.get('/service', userController.getService)
+router.post('/service', userController.bookService)
+
 module.exports = router;

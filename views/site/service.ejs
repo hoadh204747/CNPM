@@ -1,0 +1,75 @@
+<% function stripHtml(html) { return html.replace(/<[^>]*>?/gm, ''); } %>
+    <%- include('../partials/header.ejs') %>
+        <%- include('../partials/nav.ejs') %>
+
+
+            <main class="container mt-4">
+                <h1 class="text-center mb-4"><strong>Đặt lịch dịch vụ</strong></h1>
+                <label for="booking_date">Ngày sử dụng: <span id="currentDateLabel"></span></label>
+                <div class="rules-section">
+                    <form action="/dat-lich" method="POST">
+                        <label for="topic">Chọn dịch vụ
+                        <select style="width: 420px; margin: auto;" class="form-select" name="service_type" id="service_type" required>
+                          <option value="bong-ro">Sân bóng rổ</option>
+                          <option value="bong-da">Sân bóng đá</option>
+                          <option value="bong-ban">Sân bóng bàn</option>
+                          <option value="tennis">Sân tennis</option>
+                          <option value="cau-long">Sân cầu lông</option>
+                          <option value="chuyen-do">Chuyển đồ</option>
+                         
+                      </select>
+                      </label>
+                        <label for="topic">Chọn khung giờ
+                          <select style="width: 420px; margin: auto;" class="form-select" name="time_slot" id="time_slot" required>
+                            <option value="8-10">08:00-10:00</option>
+                            <option value="10-12">10:00-12:00</option>
+                            <option value="12-14">12:00-14:00</option>
+                            <option value="14-16">14:00-16:00</option>
+                            <option value="16-18">16:00-18:00</option>
+                            <option value="18-20">18:00-20:00</option>
+                        </select>
+                        </label>
+
+
+                        <br>
+
+
+                        <button type="submit " style=" border-radius: 10px; padding: 5px 16px; background-color: #fb8b24; color: white; border: none; cursor: pointer; margin-top: 10px; ">
+                          Đặt lịch
+                        </button>
+                    </form>
+                </div>
+            </main>
+
+
+            <script>
+                function getCurrentDatePlusOneDay() {
+                    // Create a new Date object
+                    var currentDate = new Date();
+
+
+                    // Add one day to the current date
+                    currentDate.setDate(currentDate.getDate() + 1);
+
+
+                    // Get individual components of the date
+                    var year = currentDate.getFullYear();
+                    var month = currentDate.getMonth() + 1; // Months are zero-indexed
+                    var day = currentDate.getDate();
+
+
+                    // Format the date as 'DD.MM.YYYY'
+                    var formattedDate = (day < 10 ? '0' : '') + day + '.' + (month < 10 ? '0' : '') + month + '.' + year;
+
+
+                    return formattedDate;
+                }
+                var currentDatePlusOneDay = getCurrentDatePlusOneDay();
+                document.getElementById('currentDateLabel').innerHTML = currentDatePlusOneDay;
+            </script>
+
+
+            </html>
+
+
+            <%- include('../partials/footer.ejs') %>

@@ -1,6 +1,21 @@
 const User = require("../model/userModel");
 const Room = require("../model/roomModel");
 const bcrypt = require("bcrypt");
+const crypto = require('crypto')
+
+const nodemailer = require('nodemailer')
+const dotenv = require('dotenv');
+dotenv.config()
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port:465,
+    secure: true,
+    auth: {
+      user: process.env.USER,
+      pass: process.env.PASS
+    }
+})
 
 class AuthController {
   async getRegister(req, res) {
@@ -39,9 +54,16 @@ class AuthController {
         user?._id,
         { $set: { id_phong } },
         { new: true }
-      ).then(() => {
-        res.redirect('/login');
-      });
+      ).then( result => {
+        
+        transporter.sendMail({
+            from: '"Hello" <dohuyhoa12012001@gmail.com>',
+            to: email,
+            subject:'Đăng ký thành công',
+            html: '<h1>Bạn đã đăng ký thành công!</h1>'
+        })
+        return res.redirect('/login')
+    })
     }
     // try {
     //   const user = await User.create({
@@ -101,6 +123,81 @@ class AuthController {
       res.redirect("/");
     });
   }
+
+  getResetPassword(req,res){
+    res.render('auth/reset-pw')
+  }
+
+  postReset(req, res, next) {
+    crypto.randomBytes(32, (err, buffer) => {
+        if (err) {
+            console.log(err)
+            return res.redirect('/dat-lai-mat-khau')
+        }
+        const token = buffer.toString('hex')
+        User.findOne({ email: req.body.email })
+            .then(user => {
+                user.resetToken = token
+                user.resetTokenExpiration = Date.now() + 360000
+                return user.save()
+            })
+            .then(result => {
+                res.redirect('/login')
+                transporter.sendMail({
+                    from: '"Hello" <dohuyhoa12012001@gmail.com>',
+                    to: req.body.email,
+                    subject: 'Đặt lại mật khẩu',
+                    html: `
+                    <p>Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn</p>
+                    <p>Click vào <a href="http://localhost:3000/set-new-password/${token}">Đây</a> để đặt mật khẩu mới</p>
+                    `
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    })
+}
+
+    getNewPassword(req, res, next) {
+        const token = req.params.token
+        User.findOne({ resetToken: token, resetTokenExpiration: { $gt: Date.now() } })
+            .then(user => {
+                res.render('auth/set-new-pw', {
+                    userId: user._id.toString(),
+                    passwordToken: token
+                })
+            })
+            .catch(err =>
+                console.log(err))
+    }
+
+    postNewPassword(req, res, next) {
+        const newPassword = req.body.password
+        const userId = req.body.userId
+        const passwordToken = req.body.passwordToken
+        let resetUser
+        User.findOne({
+            resetToken: passwordToken,
+            resetTokenExpiration: { $gt: Date.now() },
+            _id: userId
+        })
+            .then(user => {
+                resetUser = user
+                return bcrypt.hash(newPassword, 12)
+            })
+            .then(hashedPassword => {
+                resetUser.password = hashedPassword
+                resetUser.resetToken = undefined
+                resetUser.resetTokenExpiration = undefined
+                return resetUser.save()
+            })
+            .then(result => {
+                res.redirect('/login')
+            })
+            .catch(next)
+    }
+
 }
 
 module.exports = new AuthController();

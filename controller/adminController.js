@@ -3,6 +3,7 @@ const User = require("../model/userModel");
 const News = require("../model/newsModel");
 const noiquy = require("../model/noiquy");
 const quydinh = require("../model/quydinh");
+const Service = require('../model/serviceModel')
 
 class AdminController {
   async getDashboard(req, res) {
@@ -114,6 +115,18 @@ class AdminController {
     await quydinh.deleteOne({ _id: req.params.id });
     res.redirect("/list-quydinh");
   }
+
+  //Dich Vu
+  async postService(req,res){
+    const service =  await Service.create({
+      name : req.body.name,
+      end_time : req.body.end_time,
+      start_time: req.body.start_time,
+      flag : 0
+    })
+    res.status(200).json(service)
+  }
+
 }
 
 module.exports = new AdminController();

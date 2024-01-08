@@ -29,4 +29,6 @@ router.get("/edit-quydinh/:id", adminController.getUpdateQuyDinh);
 router.post("/edit-quydinh/:id", adminController.updateQuyDinh);
 router.post("/admin/list-quydinh/:id", adminController.deteleQuyDinh);
 
+router.post('/post-service', adminController.postService);
+
 module.exports = router;

@@ -2,6 +2,7 @@ const Room = require("../model/roomModel");
 const User = require("../model/userModel");
 const noiQuy = require("../model/noiquy");
 const quyDinh = require("../model/quydinh");
+const Service = require('../model/serviceModel')
 
 class UserController {
   async getDashboard(req, res) {
@@ -68,6 +69,29 @@ class UserController {
   async getHotline(req, res) {
     res.render("site/hotline");
   }
+
+  // Service
+  async bookService(req,res){
+    const idUser = req.user._id;
+    const idService = req.body.idService;
+    const service = await Service.findById(idService)
+    console.log(service);
+    
+      const updateUser = await User.findByIdAndUpdate(
+        idUser,
+        { $set: {idService}},
+        { new: true}
+      )
+      await Service.findByIdAndUpdate(
+        idService,
+        {flag: 1}
+      )
+      res.json(updateUser)
+    }
+
+    async getService(req,res){
+      res.render('site/service')
+    }
 }
 
 module.exports = new UserController();

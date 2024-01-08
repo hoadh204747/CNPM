@@ -14,6 +14,8 @@ const userSchema = new Schema({
         type:String,
         require: true
     },
+    resetToken: String,
+    resetTokenExpiration: Date,
     phone:{
         type: String,
         // require: true
@@ -29,6 +31,10 @@ const userSchema = new Schema({
     id_phong:{
         type: Schema.Types.ObjectId,
         ref:'Room'
+    },
+    idService:{
+        type: Schema.Types.ObjectId,
+        ref:'Service',
     },
     address: String,
 
