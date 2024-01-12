@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require("../controller/userController");
 
 router.get("/info", userController.getInfo);
+router.post('/info', userController.editInfo)
 router.get("/dashboard", userController.getDashboard);
 router.get("/add-member", userController.getAddMember);
 router.post("/add-member", userController.addMember);
@@ -16,5 +17,6 @@ router.get("/hotline", userController.getHotline);
 //book service
 router.get('/service', userController.getService)
 router.post('/service', userController.bookService)
+router.get('/history', userController.historyService)
 
 module.exports = router;

@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
     name: String,
-    start_time: String,
-    end_time: String,
+    start_time: Array,
+    end_time: Array,
     flag: Number
 })
 

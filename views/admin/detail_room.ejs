@@ -8,9 +8,12 @@
         <main  class="content px-3 py-2">
             
             <div>
-                <h3>Tên căn hộ: <%= room.name %></h3>
-                <h3>Chủ sở hữu: <%= user.fullname %></h3>
-                <h3>Danh sách thành viên trong căn hộ</h3>
+                <div style="display: flexbox; align-items: center; text-align: center; margin-bottom: 50px;" >
+                    <h3>Tên căn hộ: <%= room.name %></h3>
+                    <h3>Chủ sở hữu: <%= user.fullname %></h3>
+                    <h3>Danh sách thành viên trong căn hộ</h3>
+                </div>
+                
                 <div id="table" class="table-room">
                     <table style="width: 100%;">
                         <tr>

@@ -1,17 +1,23 @@
 <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %>
 
-<div class="main">
-  <h2>Thông tin cá nhân</h2>
+<div class="main d-flex align-items-center">
+  <h2 style="margin-top: 30px;">Thông tin cá nhân</h2>
   <ul>
-    <li>Họ tên: <%= user.fullname %></li>
+    <li>Họ tên: <%= user.fullname %><li>
     <li>Số điện thoại: <%= user.phone %></li>
     <li>Email: <%= user.email %></li>
     <li>Số CCCD: <%= user.cccd %></li>
     <li>Mã hợp đồng căn hộ: <%= user.idContract %></li>
     <li>Phòng: <%= room.name %></li>
   </ul>
-  <h2>Chỉnh sửa thông tin cá nhân</h2>
-  <form action=""></form>
+
+  <h2 style="margin-top: 40px;">Chỉnh sửa thông tin cá nhân</h2>
+  <div class="form-wrapper">
+    <form action="/info?_method=PUT" method="POST">
+      <input type="text" name="phone"  placeholder="Sdt">
+      <button type="submit">Cập nhật</button>
+    </form>
+  </div>
 </div>
 
 <%- include('../partials/footer.ejs') %>

@@ -31,4 +31,6 @@ router.post("/admin/list-quydinh/:id", adminController.deteleQuyDinh);
 
 router.post('/post-service', adminController.postService);
 
+router.get('/list-users', adminController.getUsers)
+
 module.exports = router;

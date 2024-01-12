@@ -10,6 +10,19 @@ li {
   list-style-type: none;
 }
 
+.table-room{
+  display: flex;
+  position: relative;
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+
+table, th, td {
+  border:1px solid black;
+  padding: 10px;
+}
+
 .table-room {
   display: flex;
   position: relative;

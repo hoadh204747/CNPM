@@ -127,6 +127,11 @@ class AdminController {
     res.status(200).json(service)
   }
 
+  async getUsers(req,res){
+    const users = await User.find({role:'member'}).populate('id_phong').exec()
+    res.render('admin/list_user', {users})
+  }
+
 }
 
 module.exports = new AdminController();

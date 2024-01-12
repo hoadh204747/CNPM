@@ -11,13 +11,11 @@
             <div class="content"><div id="detail-content"><%-news.content-%></div></div>
         </div>
         <div class="main-news-rigth">
-            <form action="" method="POST" role="search">
-                <input type="search" name="search" placeholder="Tìm kiếm...">
-            </form>
+            <input type="text" id="search" placeholder="Tìm kiếm...">
             <div style="margin-top: 15px;">
                 <h2>Bài viết mới</h2>
             </div>
-            <div>
+            <div class="list-news">
                 <ul>
                     <% post.forEach(n => { %>
                         <li><a href="/news/<%= n._id %>"><span><%= n.title %></span></a></li>
@@ -26,4 +24,19 @@
             </div>
         </div>
     </div>
+    <script>
+        const search = document.querySelector('#search')
+        search.addEventListener('input', function(e){
+            const filter= e.target.value.toLowerCase();
+            const item = document.querySelectorAll('.list-news li')
+            item.forEach( i => {
+                let text = i.textContent.toLowerCase();
+                if(text.includes(filter.toLowerCase())){
+                    i.style.display = '';
+                } else {
+                    i.style.display = 'none';
+                }
+            })
+        })
+    </script>
 <%- include('./partials/footer.ejs') %>

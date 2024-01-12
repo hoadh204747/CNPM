@@ -6,24 +6,24 @@
         <%- include('../partials/x-admin.ejs') %>
 
         <main  class="content px-3 py-2">
-
             <div class="d-flex justify-content-around align-items-center" >
-                <h2>Danh sách căn hộ</h2>
+                <h2>Danh sách chủ hộ</h2>
                 <input type="text" name="" id="search" placeholder="Search...">
             </div>
-            
             <div id="table" class="table-room">
                 <table style="width: 100%;">
                     <tr>
-                        <th>Tên căn hộ</th>
-                        <th>Thao tác</th>
-                    </tr> 
-                    <% rooms.forEach( r => { %>
+                        <th>Tên</th>
+                        <th>Số điện thoại</th>
+                        <th>căn hộ sở hữu</th>
+                    </tr>
+                    <% users.forEach(u => { %>
                         <tr>
-                            <td><%= r.name %></td>
-                            <td><a href="/room/<%= r._id %>">Chi tiết</a></td>
+                            <td><%= u.fullname %></td>
+                            <td><%= u.phone %></td>
+                            <td><%= u.id_phong.name %></td>
                         </tr>
-                    <% }) %>
+                    <%}) %>
                 </table>
             </div>
             

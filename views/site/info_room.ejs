@@ -1,15 +1,17 @@
 <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %>
 
 <div class="main">
-  <h3>Tên căn hộ: <%= room?.name %></h3>
-  <h3>Chủ sở hữu: <%= user.fullname %></h3>
-  <h3>Danh sách thành viên trong căn hộ</h3>
+   <div style="margin: auto;">
+    <h3>Tên căn hộ: <%= room?.name %></h3>
+    <h3>Chủ sở hữu: <%= user.fullname %></h3>
+    <h3>Danh sách thành viên trong căn hộ</h3>
+   </div>
   <div id="table" class="table-room">
     <table style="width: 100%">
       <tr>
         <th>Họ tên</th>
+        <th>Mối quan hệ với chủ hộ</th>
         <th>Số điện thoại</th>
-        <th>Mỗi quan hệ với chủ hộ</th>
         <th>Thao tác</th>
       </tr>
       <% room?.member.forEach(m => { %>

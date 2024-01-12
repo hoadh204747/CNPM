@@ -32,10 +32,16 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:'Room'
     },
-    idService:{
-        type: Schema.Types.ObjectId,
-        ref:'Service',
-    },
+    // idService:{
+    //     type: Schema.Types.ObjectId,
+    //     ref:'Service',
+    // },
+    listService:[
+        {idService:{
+            type : Schema.Types.ObjectId,
+            ref: 'Service'
+        }  }
+    ],
     address: String,
 
     bool: {
